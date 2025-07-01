@@ -1,0 +1,30 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+@layer base {
+  .carousel img {
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    touch-action: manipulation; /* improves mobile tap behavior */
+
+  pointer-events: auto; /* keep clickable if needed */
+
+  }
+
+  .carousel .control-arrow:focus {
+    outline: none;
+  }
+}
+
+.inter-font{
+      font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+ 
+}
+
+.cinzel-font{
+     font-family: "Cinzel", serif;
+  font-optical-sizing: auto;
+}

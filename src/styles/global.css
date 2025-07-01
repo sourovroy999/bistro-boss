@@ -1,0 +1,21 @@
+/* .carousel img{
+    user-select: none;
+    -webkit-user-drag: none;
+    
+}
+
+.carousel .control-arrow:focus {
+  outline: none;
+} */
+.custom-carousel .thumbs-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.custom-carousel .thumbs {
+  display: flex;
+  justify-content: center;
+  width: auto;
+  margin: 0 auto;
+  padding-top: 10px;
+}
