@@ -2,7 +2,7 @@
 const MenuItems = ({item}) => {
     
     const{name, recipe, image, price} = item
-    console.log(image);
+    // console.log(image);
     
     return (
 

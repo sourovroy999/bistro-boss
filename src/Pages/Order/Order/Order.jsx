@@ -7,7 +7,7 @@ import 'react-tabs/style/react-tabs.css';
 import useMenu from '../../../Hooks/useMenu';
 import OrderTab from '../OrderTab/OrderTab';
 import { useParams } from 'react-router';
-import { Helmet } from 'react-helmet-async';
+// import { Helmet } from 'react-helmet-async';
 
 const Order = () => {
 
@@ -33,10 +33,10 @@ const Order = () => {
 
     return (
         <div>
-
+{/* 
             <Helmet>
       <title>Order Food | Bistro Boss Restaurant</title>
-                        </Helmet>
+                        </Helmet> */}
             <Cover title={'Order Food'} img={orderCover}/>
             
        

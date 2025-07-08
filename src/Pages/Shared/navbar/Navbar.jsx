@@ -1,6 +1,28 @@
-import { Link } from "react-router";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router";
+import { AuthContext } from "../../../providers/AuthProvider";
+import toast from "react-hot-toast";
+import {FaCartShopping } from "react-icons/fa6";
+import useCart from "../../../Hooks/useCart";
+
 
 const Navbar = () => {
+  const{user, logOut}=useContext(AuthContext)
+  const[cart]=useCart()
+
+  const navigate=useNavigate()
+
+  const handleLogout=()=>{
+    logOut()
+    .then(()=>{
+      toast.success('log out successfull');
+      navigate('/login')
+    })
+    .catch(err=>{
+      console.log(err);
+      
+    })
+  }
 
     const navOptions= <>
             
@@ -10,6 +32,10 @@ const Navbar = () => {
               <li><Link>DASHBOARD</Link></li>
               <li><Link to='/menu'>OUR MENU</Link></li>
               <li><Link to={'/order/salad'}>ORdER</Link></li>
+              
+              <li><Link to={'/secret'}>secret</Link></li>
+              
+           
        
               {/* <li><a>Item 3</a></li> */}
 
@@ -17,7 +43,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar inter-font md:px-20 max-w-7xl mx-auto bg-black opacity-50  fixed z-10  text-white shadow-sm">
+        <div className="navbar inter-font md:px-4 max-w-7xl mx-auto    fixed z-10   text-white shadow-sm">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -25,7 +51,7 @@ const Navbar = () => {
       </div>
       <ul
         tabIndex={0}
-        className="menu menu-sm dropdown-content uppercase  rounded-box z-1 mt-3 w-52 p-2 shadow gap-4 bg-black">
+        className="menu menu-sm dropdown-content uppercase  rounded-box z-1 mt-3 w-52 p-2 gap-1 shadow  bg-black">
 
             {navOptions}
 
@@ -36,7 +62,7 @@ const Navbar = () => {
      </div>
   </div>
   <div className="navbar-center hidden lg:flex">
-    <ul className="menu uppercase menu-horizontal px-1 gap-4">
+    <ul className="menu uppercase menu-horizontal px-1 gap-1">
 
           {navOptions}
 
@@ -44,7 +70,26 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn">Button</a>
+      {
+                user? <div className="flex items-center gap-5">
+                  <p>{user.displayName}</p>
+                  
+                
+                  <Link to={'/dashboard/cart'} className="btn">
+
+                  <FaCartShopping className="mr-2 text-pink-800 text-2xl" />
+               <div className="badge badge-sm badge-secondary"> +{cart.length}</div>
+                   </Link>
+
+                   <button onClick={handleLogout} className="btn ">LogOut</button>
+
+                </div> 
+                
+                : 
+                
+                <Link className="btn" to={'/login'}>login</Link>
+                
+              }
   </div>
         </div>
     );

@@ -3,7 +3,7 @@ import FoodCards from "../../../Components/FoodCard/FoodCards";
 const OrderTab = ({items}) => {
 
     return (
-        <div className=' grid px-4 md:px-40 gap-6 md:grid-cols-3'> 
+        <div className=' grid px-4 md:px-5 lg:px-40 gap-6 grid-cols-1 md:grid-cols-3'> 
         
                 {
                     items.map(item=> <FoodCards 
