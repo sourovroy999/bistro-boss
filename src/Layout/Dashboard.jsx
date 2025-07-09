@@ -1,13 +1,14 @@
-import { FaAdn, FaBook, FaBowlFood, FaCalendar, FaCartPlus, FaCartShopping, FaHouse, FaHouseCrack, FaList, FaMessage, FaPhone, FaShop, FaUsers, FaUtensils } from "react-icons/fa6";
+import { FaBook, FaBowlFood, FaCalendar, FaCartShopping, FaHouse, FaList, FaMessage, FaPhone, FaShop, FaUsers, FaUtensils } from "react-icons/fa6";
 import { NavLink, Outlet } from "react-router";
 import useCart from "../Hooks/useCart";
+import useAdmin from "../Hooks/useAdmin";
 
 const Dashboard = () => {
 
     const [cart]=useCart()
 
     //todo: get this admit value from the database
-    const isAdmin=true;
+    const [isAdmin]=useAdmin();
 
 
     return (
