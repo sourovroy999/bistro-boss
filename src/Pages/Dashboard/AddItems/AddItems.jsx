@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 
 const AddItems = () => {
     const { register, handleSubmit, reset } = useForm();
-    const axiosPublic = useAxiosPublic()
+    // const axiosPublic = useAxiosPublic()
     const axiosSecure = useAxiosSecure()
 
     const onSubmit = async (data) => {
