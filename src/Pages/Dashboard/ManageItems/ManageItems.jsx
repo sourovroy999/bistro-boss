@@ -5,11 +5,12 @@ import { FaRegTrashCan } from 'react-icons/fa6';
 import { FaRegEdit } from "react-icons/fa";
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import { Link } from 'react-router';
 
 const ManageItems = () => {
     const [menu, loading, refetch] = useMenu();
     const axiosSecure=useAxiosSecure()
-    console.log(menu);
+    // console.log(menu);
 
     const handleItemDelete=(item)=>{
         console.log(item);
@@ -102,9 +103,9 @@ const ManageItems = () => {
                             </td>
                             <td>${item.price}</td>
                             <td>
-                               <button onClick={()=>handleUpdateItem(item)} className="btn btn-ghost ">
+                               <Link to={`/dashboard/updateItem/${item._id}`} onClick={()=>handleUpdateItem(item)} className="btn btn-ghost ">
                                     <FaRegEdit  className='text-orange-500 ' />
-                                </button>
+                                </Link>
                             </td>
                             <td>
                                <button onClick={()=>handleItemDelete(item)} className="btn  btn-ghost "><FaRegTrashCan className='text-red-600' />
