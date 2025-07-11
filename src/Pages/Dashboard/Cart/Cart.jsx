@@ -3,6 +3,7 @@ import useCart from '../../../Hooks/useCart';
 import { FaRegTrashCan } from "react-icons/fa6";
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import { Link } from 'react-router';
 
 
 const Cart = () => {
@@ -37,26 +38,27 @@ const Cart = () => {
       text: "Your file has been deleted.",
       icon: "success"
     });
-      }
+    }
       
     })
-
-
-    
-
-
   }
 });
 
     }
     
-
     return (
         <div>
             <div className='flex justify-evenly mb-10'>
                 <h2 className="text-4xl">Items: {cart.length}</h2>
                 <h2 className="text-4xl">Total Price: {sum}</h2>
-                <button className="btn btn-primary my-3 btn-wide">Pay</button>
+                {
+                cart.length  ?
+                 <Link to={'/dashboard/payment'}>
+                <button  className="btn btn-primary my-3 btn-wide">Pay</button>
+                </Link>
+                 : 
+                <button disabled className="btn btn-primary my-3 btn-wide">Pay</button>
+                }
             </div>
 
             <div>
@@ -104,13 +106,8 @@ const Cart = () => {
 
       )}
 
-    
-    
-     
-
     </tbody>
   
-
   </table>
                 </div>
             </div>

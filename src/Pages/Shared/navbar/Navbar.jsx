@@ -4,11 +4,13 @@ import { AuthContext } from "../../../providers/AuthProvider";
 import toast from "react-hot-toast";
 import {FaCartShopping } from "react-icons/fa6";
 import useCart from "../../../Hooks/useCart";
+import useAdmin from "../../../Hooks/useAdmin";
 
 
 const Navbar = () => {
   const{user, logOut}=useContext(AuthContext)
   const[cart]=useCart()
+  const[isAdmin, isAdminLoading]=useAdmin()
 
   const navigate=useNavigate()
 
@@ -33,7 +35,17 @@ const Navbar = () => {
               <li><Link to='/menu'>OUR MENU</Link></li>
               <li><Link to={'/order/salad'}>ORdER</Link></li>
               
-              <li><Link to={'/secret'}>secret</Link></li>
+           {
+            //eivbeo kora jay
+             //user? condition ? 'double true'? 'one true' : false
+
+           }
+           {
+            user && isAdmin &&  <li><Link to={'/dashboard/adminHome'}>Dashboard</Link></li>
+           }
+           {
+            user && !isAdmin &&  <li><Link to={'/dashboard/userHome'}>Dashboard</Link></li>
+           }
               
            
        
